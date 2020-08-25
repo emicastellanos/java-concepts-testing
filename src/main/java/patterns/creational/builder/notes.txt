@@ -1,0 +1,17 @@
+If we have multiple consecutive arguments of the same type, it's easy to accidentally swap them around.
+Since the compiler doesn't pick it up as an error, it can manifest as an issue somewhere down the line at runtime
+– and that can turn into a tricky debugging exercise.
+In addition, adding more constructor parameters results in code that becomes harder to read.
+If we had 10 different parameters, it would become very difficult to identify what's what in the constructor at a single glance.
+To make it worse, some of those values might be optional, which means that we'll need to create a bunch of overloaded constructors
+to deal with all possible combinations, or we'll have to pass nulls to our constructor (Ugly!)
+
+
+We can mitigate the issue by calling a no-arg constructor and then setting up the account via setter methods instead.
+However, that leaves us open to another issue – what happens if a developer forgets to call a particular setter method?
+We could end up with an object that is only partially initialized, and again, the compiler wouldn't see any problems with it.
+
+Thus, there are two specific problems that we need to solve:
+    * Too many constructor arguments.
+    * Incorrect object state.
+
