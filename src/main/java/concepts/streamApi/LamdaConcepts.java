@@ -5,25 +5,17 @@ import util.Person;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class LamdaConcepts {
     static List<Person> roster;
-
-    public LamdaConcepts() {
-    }
-
-    @FunctionalInterface
-    interface CheckPerson {
-        boolean test(Person p);
-    }
 
     public static List<Person> getList() {
         return roster;
     }
 
-
-    public static void printPersons(List<Person> roster, CheckPerson tester) {
-
+    public static void printPersons(List<Person> roster, Predicate<Person> tester) {
         for (Person p : roster) {
             if (tester.test(p)) {
                 System.out.println(p);
@@ -31,6 +23,16 @@ public class LamdaConcepts {
         }
     }
 
+
+    public static void processPersons(List<Person> roster,
+                                    Predicate<Person> tester,
+                                    Consumer<Person> block) {
+        for (Person p : roster) {
+            if (tester.test(p)) {
+                block.accept(p);
+            }
+        }
+    }
 
 
     public static void main(String[] args) {
@@ -48,11 +50,12 @@ public class LamdaConcepts {
         roster.add(person5);
         roster.add(person6);
 
-        LamdaConcepts.printPersons(
+        LamdaConcepts.processPersons(
                 LamdaConcepts.getList(),
                 (Person p) -> p.getGender() == Person.Sex.MALE &&
                         p.getAge() >= 18 &&
-                        p.getAge() <= 35);
+                        p.getAge() <= 35,
+                p -> System.out.println(p.toString() + p.getAge()));
     }
 
 }
