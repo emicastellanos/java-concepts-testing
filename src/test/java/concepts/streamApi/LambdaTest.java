@@ -1,6 +1,6 @@
 package concepts.streamApi;
 
-import concepts.util.Person;
+import util.Person;
 import org.junit.BeforeClass;
 
 import java.time.LocalDate;

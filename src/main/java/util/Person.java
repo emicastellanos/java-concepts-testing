@@ -1,6 +1,7 @@
-package concepts.util;
+package util;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Person {
     public enum Sex {
@@ -61,8 +62,21 @@ public class Person {
         this.emailAddress = emailAddress;
     }
 
+    public int getAge(){
+        return Period.between(birthday, LocalDate.now()).getYears();
+    }
+
     public static int compareByAge(Person a, Person b) {
         return a.birthday.compareTo(b.birthday);
     }
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", birthday=" + birthday +
+                ", gender=" + gender +
+                ", emailAddress='" + emailAddress + '\'' +
+                '}';
+    }
 }
