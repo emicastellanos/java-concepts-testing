@@ -47,6 +47,30 @@ public class LamdaConcepts {
         }
     }
 
+    public static <X> void processElementsString(Iterable<X> source,
+                                           Predicate<X> tester,
+                                           Consumer<String> block,
+                                           Function<X, String> mapper) {
+        for (X p : source) {
+            if (tester.test(p)) {
+                String data = mapper.apply(p);
+                block.accept(data);
+            }
+        }
+    }
+
+    public static <X, Y> void processElements(Iterable<X> source,
+                                           Predicate<X> tester,
+                                           Consumer<Y> block,
+                                           Function<X, Y> mapper) {
+        for (X p : source) {
+            if (tester.test(p)) {
+                Y data = mapper.apply(p);
+                block.accept(data);
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
         roster = new ArrayList<>();
@@ -76,6 +100,15 @@ public class LamdaConcepts {
                 p -> p.getGender() == Person.Sex.MALE &&
                         p.getAge() >= 18 &&
                         p.getAge() <= 35,
+                p -> System.out.println(p),
+                p -> p.getEmailAddress()
+        );
+
+        LamdaConcepts.processElements(
+                LamdaConcepts.getList(),
+                person -> person.getGender() == Person.Sex.MALE &&
+                        person.getAge() >= 18 &&
+                        person.getAge() <= 35,
                 p -> System.out.println(p),
                 p -> p.getEmailAddress()
         );
