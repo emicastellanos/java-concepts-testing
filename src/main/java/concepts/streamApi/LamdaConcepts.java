@@ -71,7 +71,6 @@ public class LamdaConcepts {
         }
     }
 
-
     public static void main(String[] args) {
         roster = new ArrayList<>();
         Person person1 = new Person("Juan", Person.Sex.MALE, "juan@gmail.com", LocalDate.of(1990, 10, 21));
@@ -109,9 +108,19 @@ public class LamdaConcepts {
                 person -> person.getGender() == Person.Sex.MALE &&
                         person.getAge() >= 18 &&
                         person.getAge() <= 35,
-                p -> System.out.println(p),
+                data -> System.out.println(data),
                 p -> p.getEmailAddress()
         );
+
+        System.out.println("streams");
+        LamdaConcepts.getList()
+                .stream()
+                .filter(person ->  person.getGender() == Person.Sex.MALE &&
+                        person.getAge() >= 18 && person.getAge() <= 35)
+                .map(person -> person.getEmailAddress())
+                .forEach(System.out::println);
+
+
     }
 
 }
