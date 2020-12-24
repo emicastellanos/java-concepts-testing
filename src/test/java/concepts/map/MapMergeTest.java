@@ -1,5 +1,4 @@
-package concepts.streamApi;
-
+package concepts.map;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -12,11 +11,11 @@ import java.util.Map;
 
 public class MapMergeTest {
 
-    private List<String> words = Arrays.asList("Foo", "Bar", "Foo", "Buzz", "Foo", "Buzz", "Fizz", "Fizz");
-    private Map<String, Integer> mapWords;
+    private static List<String> words = Arrays.asList("Foo", "Bar", "Foo", "Buzz", "Foo", "Buzz", "Fizz", "Fizz");
+    private static Map<String, Integer> mapWords;
 
     @BeforeClass
-    public void init (){
+    public static void init() {
         mapWords = new HashMap<String, Integer>();
         words.forEach(word -> {
             Integer prev = mapWords.get(word);
@@ -53,13 +52,13 @@ public class MapMergeTest {
     }
 
     @Test
-    public void mapMergeRefactoredTest(){
+    public void mapMergeRefactoredTest() {
         Map<String, Integer> mapMergeRefactored = new HashMap<String, Integer>();
 
         words.forEach(word -> mapMergeRefactored.merge(word, 1, Integer::sum));
 
         Assert.assertTrue(mapWords.size() == mapMergeRefactored.size());
-        mapWords.keySet().stream().forEach(k -> Assert.assertEquals(k + " have different count (mapMergeRefactored)"
-                , mapWords.get(k),mapMergeRefactored.get(k)));
+        mapWords.keySet().stream().forEach(k -> Assert.assertEquals(k + " have different count (mapMergeRefactored)",
+                mapWords.get(k), mapMergeRefactored.get(k)));
     }
 }
