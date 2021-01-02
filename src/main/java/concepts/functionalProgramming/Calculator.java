@@ -1,7 +1,8 @@
-package concepts.streamApi;
+package concepts.functionalProgramming;
 
 public class Calculator {
 
+    @FunctionalInterface
     interface IntegerMath {
         int operation(int a, int b);
     }

@@ -1,4 +1,4 @@
-package concepts.streamApi;
+package concepts.functionalProgramming;
 
 import util.Person;
 import org.junit.BeforeClass;

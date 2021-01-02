@@ -1,4 +1,4 @@
-package concepts.streamApi;
+package concepts.functionalProgramming;
 
 import util.Person;
 
@@ -119,7 +119,6 @@ public class LamdaConcepts {
                         person.getAge() >= 18 && person.getAge() <= 35)
                 .map(person -> person.getEmailAddress())
                 .forEach(System.out::println);
-
 
     }
 
