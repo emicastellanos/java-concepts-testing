@@ -1,4 +1,4 @@
-package patterns.creational.templateMethod;
+package patterns.behavioral.templateMethod;
 
 public class TemplateMethodDemo {
     public static void main (String[] args){

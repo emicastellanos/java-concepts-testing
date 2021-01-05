@@ -1,4 +1,4 @@
-package patterns.creational.templateMethod;
+package patterns.behavioral.templateMethod;
 
 abstract class Generalization {
 

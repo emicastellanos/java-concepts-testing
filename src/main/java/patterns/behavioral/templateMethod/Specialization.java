@@ -1,4 +1,4 @@
-package patterns.creational.templateMethod;
+package patterns.behavioral.templateMethod;
 
 abstract class Specialization extends Generalization {
     // 4. Derived classes can override placeholder methods

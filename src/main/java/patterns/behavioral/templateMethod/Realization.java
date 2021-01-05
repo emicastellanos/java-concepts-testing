@@ -1,4 +1,4 @@
-package patterns.creational.templateMethod;
+package patterns.behavioral.templateMethod;
 
 class Realization extends Specialization {
     // 4. Derived classes can override placeholder methods
