@@ -23,6 +23,7 @@ import java.util.Optional;
  * Input: nums = [3,3], target = 6
  * Output: [0,1]
  */
+
 public class SumElementsFinder {
 
     private final int TOTAL_INDEXES = 2;
@@ -42,38 +43,38 @@ public class SumElementsFinder {
         }
         return Optional.empty();
     }
+}
 
-    public static class Pair {
-        private final int val1;
-        private final int val2;
+final class Pair {
+    private final int val1;
+    private final int val2;
 
-        public Pair(int val1, int val2) {
-            this.val1 = val1;
-            this.val2 = val2;
-        }
+    public Pair(int val1, int val2) {
+        this.val1 = val1;
+        this.val2 = val2;
+    }
 
-        public int getVal1() {
-            return val1;
-        }
+    public int getVal1() {
+        return val1;
+    }
 
-        public int getVal2() {
-            return val2;
-        }
+    public int getVal2() {
+        return val2;
+    }
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof Pair)) return false;
-            Pair pair = (Pair) o;
-            return getVal1() == pair.getVal1() &&
-                    getVal2() == pair.getVal2() ||
-                    getVal1() == pair.getVal2() &&
-                            getVal2() == pair.getVal1();
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pair)) return false;
+        Pair pair = (Pair) o;
+        return getVal1() == pair.getVal1() &&
+                getVal2() == pair.getVal2() ||
+                getVal1() == pair.getVal2() &&
+                        getVal2() == pair.getVal1();
+    }
 
-        @Override
-        public int hashCode() {
-            return Objects.hash(getVal1(), getVal2());
-        }
+    @Override
+    public int hashCode() {
+        return Objects.hash(getVal1(), getVal2());
     }
 }

@@ -14,8 +14,8 @@ public class SumElementsFinderTest {
         SumElementsFinder sumElementsFinder = new SumElementsFinder();
         int[] nums = {2, 7, 11, 15};
         int target = 9;
-        SumElementsFinder.Pair pairExpected = new SumElementsFinder.Pair(0, 1);
-        Optional<SumElementsFinder.Pair> result = sumElementsFinder.getElements(nums, target);
+        Pair pairExpected = new Pair(0, 1);
+        Optional<Pair> result = sumElementsFinder.getElements(nums, target);
 
         Assert.assertEquals(pairExpected, result.get());
 
